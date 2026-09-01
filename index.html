@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplos Essenciais de DOM</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { margin: 5px; padding: 10px 15px; cursor: pointer; }
+    .destaque { background-color: yellow; font-weight: bold; padding: 5px; }
+    .box { margin-top: 15px; padding: 15px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h1 id="titulo">Manipulação do DOM na Prática</h1>
+
+  <!-- Botões interativos -->
+  <div>
+    <button id="btn-hover">1. Passe o mouse (Cor)</button>
+    <button id="btn-delay">2. Clique com Delay (2s)</button>
+    <button id="btn-texto">3. Alterar Texto</button>
+    <button id="btn-classe">4. Alternar Classe</button>
+    <button id="btn-add">5. Adicionar Item</button>
+    <button id="btn-del">6. Remover Item</button>
+  </div>
+
+  <div class="box">
+    <p id="mensagem">Status: Aguardando ação...</p>
+    <ul id="lista">
+      <li>Item inicial</li>
+    </ul>
+  </div>
+
+  <script>
+    // Referências aos nós do DOM
+    const titulo = document.getElementById('titulo');
+    const mensagem = document.getElementById('mensagem');
+    const lista = document.getElementById('lista');
+
+    
+    const btnHover = document.getElementById('btn-hover');
+    btnHover.addEventListener('mouseenter', () => {
+      btnHover.style.backgroundColor = 'lightgreen';
+    });
+    btnHover.addEventListener('mouseleave', () => {
+      btnHover.style.backgroundColor = '';
+    });
+
+   
+    const btnDelay = document.getElementById('btn-delay');
+    btnDelay.addEventListener('click', () => {
+      mensagem.textContent = 'Processando... aguarde 2 segundos.';
+      btnDelay.disabled = true; // Previne múltiplos cliques
+
+      setTimeout(() => {
+        mensagem.textContent = '✅ Ação concluída após o delay!';
+        btnDelay.disabled = false;
+      }, 2000);
+    });
+
+    // 3. Modificar texto (textContent)
+    document.getElementById('btn-texto').addEventListener('click', () => {
+      titulo.textContent = 'Título Atualizado!';
+    });
+
+    // 4. Alternar classes CSS (classList.toggle)
+    document.getElementById('btn-classe').addEventListener('click', () => {
+      mensagem.classList.toggle('destaque');
+    });
+
+    // 5. Criar e inserir elemento (createElement + appendChild)
+    document.getElementById('btn-add').addEventListener('click', () => {
+      const novoItem = document.createElement('li');
+      novoItem.textContent = `Novo Item (${lista.children.length + 1})`;
+      lista.appendChild(novoItem);
+    });
+
+    // 6. Remover elemento (remove)
+    document.getElementById('btn-del').addEventListener('click', () => {
+      if (lista.lastElementChild) {
+        lista.lastElementChild.remove();
+      }
+    });
+  </script>
+
+</body>
+</html>
