@@ -1,8 +1,6 @@
-/* ==========================================================================
-   1. RESET E VARIÁVEIS GLOBAIS (DESIGN SYSTEM)
-   ========================================================================== */
+
 :root {
-  /* Cores - Modo Claro */
+ 
   --bg-primary: #f3f4f6;
   --bg-surface: #ffffff;
   --bg-box: #f9fafb;
@@ -17,7 +15,7 @@
   --brand-warning: #f59e0b;
   --brand-danger: #ef4444;
   
-  /* Animações e Sombra */
+  
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
