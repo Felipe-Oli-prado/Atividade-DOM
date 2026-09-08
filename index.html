@@ -15,7 +15,7 @@
 
   <h1 id="titulo">Manipulação do DOM na Prática</h1>
 
-  <!-- Botões interativos -->
+ 
   <div>
     <button id="btn-hover">1. Passe o mouse (Cor)</button>
     <button id="btn-delay">2. Clique com Delay (2s)</button>
@@ -33,7 +33,7 @@
   </div>
 
   <script>
-    // Referências aos nós do DOM
+    
     const titulo = document.getElementById('titulo');
     const mensagem = document.getElementById('mensagem');
     const lista = document.getElementById('lista');
@@ -51,7 +51,8 @@
     const btnDelay = document.getElementById('btn-delay');
     btnDelay.addEventListener('click', () => {
       mensagem.textContent = 'Processando... aguarde 2 segundos.';
-      btnDelay.disabled = true; // Previne múltiplos cliques
+      btnDelay.disabled = true; 
+      
 
       setTimeout(() => {
         mensagem.textContent = '✅ Ação concluída após o delay!';
@@ -59,24 +60,27 @@
       }, 2000);
     });
 
-    // 3. Modificar texto (textContent)
+    
+    
     document.getElementById('btn-texto').addEventListener('click', () => {
       titulo.textContent = 'Título Atualizado!!!!!!!';
     });
 
-    // 4. Alternar classes CSS (classList.toggle)
+    
     document.getElementById('btn-classe').addEventListener('click', () => {
       mensagem.classList.toggle('destaque');
     });
 
-    // 5. Criar e inserir elemento (createElement + appendChild)
+    
+    
     document.getElementById('btn-add').addEventListener('click', () => {
       const novoItem = document.createElement('li');
       novoItem.textContent = `Novo Item (${lista.children.length + 1})`;
       lista.appendChild(novoItem);
     });
 
-    // 6. Remover elemento (remove)
+   
+    
     document.getElementById('btn-del').addEventListener('click', () => {
       if (lista.lastElementChild) {
         lista.lastElementChild.remove();
